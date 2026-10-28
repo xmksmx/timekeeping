@@ -1,18 +1,8 @@
-/**
- * точка входа в консольное приложение.
- */
-public final class Main {
+void main() {
+    var first = new EmployeeId("E001");
+    var second = new EmployeeId("E001");
 
-    private Main() {
-    }
-
-    /**
-     * запускает демонстрацию.
-     *
-     * @param args аргументы командной строки
-     */
-    static void main(String[] args) {
-        // проверяется, что проект собирается и запускается.
-        System.out.println("табель учёта рабочего времени");
-    }
+    System.out.println("номер: " + first.value());
+    System.out.println("номера совпадают: " + first.equals(second));
+    System.out.println("хеши совпадают: " + (first.hashCode() == second.hashCode()));
 }
