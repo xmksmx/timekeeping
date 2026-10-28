@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 void main() {
     var first = new EmployeeId("E001");
     var second = new EmployeeId("E001");
@@ -13,4 +16,20 @@ void main() {
     );
 
     System.out.println(employee.description());
+
+    var zone = ZoneId.of("Europe/Moscow");
+    var date = LocalDate.of(2026, 10, 29);
+
+    var day = new Shift(
+            date.atTime(9, 0).atZone(zone),
+            date.atTime(17, 0).atZone(zone)
+    );
+
+    var night = new Shift(
+            date.atTime(21, 0).atZone(zone),
+            date.plusDays(1).atTime(7, 0).atZone(zone)
+    );
+
+    System.out.println("дневная смена: " + day.duration());
+    System.out.println("смена через полночь: " + night.duration());
 }
