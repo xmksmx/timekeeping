@@ -32,4 +32,13 @@ void main() {
 
     System.out.println("дневная смена: " + day.duration());
     System.out.println("смена через полночь: " + night.duration());
+
+    System.out.println();
+    System.out.println("типы рабочего времени:");
+
+    for (var type : TimeType.values()) {
+        System.out.println(
+                type.label() + ": коэффициент " + type.coefficient()
+        );
+    }
 }
