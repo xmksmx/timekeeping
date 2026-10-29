@@ -57,8 +57,8 @@ class EmployeeIdTest {
         assertEquals(first, third);
 
         assertEquals(first.hashCode(), second.hashCode());
-        assertNotEquals(first, null);
-        assertNotEquals(first, "E001");
+        assertNotEquals(null, first);
+        assertNotEquals("E001", first);
     }
 
     @Test
