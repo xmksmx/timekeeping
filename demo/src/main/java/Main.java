@@ -41,4 +41,20 @@ void main() {
                 type.label() + ": коэффициент " + type.coefficient()
         );
     }
+
+    var segment = new TimeSegment(
+            new Shift(
+                    date.atTime(22, 0).atZone(zone),
+                    date.plusDays(1).atTime(2, 0).atZone(zone)
+            ),
+            Set.of(TimeType.NIGHT, TimeType.HOLIDAY)
+    );
+
+    System.out.println();
+    System.out.println("ночной праздничный отрезок:");
+    System.out.println("длительность: " + segment.duration());
+
+    for (var type : segment.types()) {
+        System.out.println("тип времени: " + type.label());
+    }
 }
