@@ -57,4 +57,18 @@ void main() {
     for (var type : segment.types()) {
         System.out.println("тип времени: " + type.label());
     }
+
+    TimeClassifier classifier = new CalendarTimeClassifier(
+            Set.of(date.plusDays(1))
+    );
+
+    var moment = date.plusDays(1).atTime(2, 0).atZone(zone);
+
+    System.out.println();
+    System.out.println("автоматическое определение типов:");
+    System.out.println("момент: " + moment);
+
+    for (var type : classifier.classify(moment)) {
+        System.out.println("тип времени: " + type.label());
+    }
 }
